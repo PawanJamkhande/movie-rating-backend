@@ -24,13 +24,14 @@ public class CorsConfig {
 
         List<String> allowedOrigins = new java.util.ArrayList<>();
         allowedOrigins.add("http://localhost:4200");
+        allowedOrigins.add("https://movie-rating-frontend-79j7.vercel.app");
         if (frontendUrl != null && !frontendUrl.isBlank()) {
             allowedOrigins.add(frontendUrl);
         }
         configuration.setAllowedOrigins(allowedOrigins);
 
         configuration.setAllowedMethods(
-                List.of("GET", "POST", "PUT", "DELETE"));
+                List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
         configuration.setAllowedHeaders(List.of("*"));
 
