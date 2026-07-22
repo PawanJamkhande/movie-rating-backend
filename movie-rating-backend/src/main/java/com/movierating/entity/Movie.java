@@ -31,7 +31,7 @@ public class Movie {
     @NotEmpty(message = "At least one genre is required")
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "movie_genres", joinColumns = @JoinColumn(name = "movie_id"))
-    @Column(name = "genre", nullable = false)
+    @Column(name = "genre", nullable = false) //@Column automatically creates the coloumn done by JPA/Hibernate
     private List<String> genres;
 
     @NotBlank(message = "Director name is required")
@@ -47,6 +47,8 @@ public class Movie {
 
     // URL to poster image, optional
     private String posterUrl;
+    // YouTube trailer URL, optional
+    private String trailerUrl;
 
     @Column(nullable = false)
     private String language;
