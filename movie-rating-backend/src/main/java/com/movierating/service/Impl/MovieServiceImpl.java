@@ -38,6 +38,7 @@ public class MovieServiceImpl implements MovieService {
 				.releaseYear(request.getReleaseYear())
 				.description(request.getDescription())
 				.posterUrl(request.getPosterUrl())
+				.trailerUrl(request.getTrailerUrl())
 				.language(request.getLanguage())
 				.durationMinutes(request.getDurationMinutes())
 				.status("ACTIVE")
@@ -60,6 +61,7 @@ public class MovieServiceImpl implements MovieService {
 		movie.setReleaseYear(request.getReleaseYear());
 		movie.setDescription(request.getDescription());
 		movie.setPosterUrl(request.getPosterUrl());
+		movie.setTrailerUrl(request.getTrailerUrl());
 		movie.setLanguage(request.getLanguage());
 		movie.setDurationMinutes(request.getDurationMinutes());
 
@@ -131,6 +133,7 @@ public class MovieServiceImpl implements MovieService {
 				.releaseYear(movie.getReleaseYear())
 				.description(movie.getDescription())
 				.posterUrl(movie.getPosterUrl())
+				.trailerUrl(movie.getTrailerUrl())
 				.language(movie.getLanguage())
 				.durationMinutes(movie.getDurationMinutes())
 				.status(movie.getStatus())
