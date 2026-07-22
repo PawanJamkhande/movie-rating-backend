@@ -27,6 +27,8 @@ public class MovieRequest {
 
     private String posterUrl;
 
+    private String trailerUrl;
+    
     @NotBlank(message = "Language is required")
     private String language;
 
