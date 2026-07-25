@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 				.email(request.getEmail())
 				.mobile(request.getMobile())
 				.password(passwordEncoder.encode(request.getPassword())) // never store plain text password
-				.role(request.getRole() == null || request.getRole().isBlank() ? "USER" : request.getRole().toUpperCase())
+				.role("USER")
 				.build();
 
 		User saved = userRepository.save(user); // Hibernate inserts the row - table already exists via ddl-auto
