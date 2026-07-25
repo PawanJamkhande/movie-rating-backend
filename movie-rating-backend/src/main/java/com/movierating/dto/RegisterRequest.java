@@ -24,6 +24,5 @@ public class RegisterRequest {
             message = "Password must be between 6 and 15 characters")
     private String password;
 
-    @NotBlank(message = "Role is required")
-    private String role;
+ 
 }
