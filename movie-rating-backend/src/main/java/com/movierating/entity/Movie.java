@@ -1,3 +1,6 @@
+/* Java know the language of objects and SQL knows the language of tables the queries how will springboot communicate between them it uses hibernate 
+so this entity package is used to create the table in database entity holds the values or the tables which will be then created in SQL*/
+
 package com.movierating.entity;
 
 import java.util.List;
