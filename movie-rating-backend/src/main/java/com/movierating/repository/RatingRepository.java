@@ -22,6 +22,7 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
 	// average stars for one movie, computed in the DB rather than pulled into Java
 	@Query("SELECT AVG(r.stars) FROM Rating r WHERE r.movie.movieId = :movieId")
 	Double findAverageRatingByMovieId(@Param("movieId") Long movieId);
+	// @Param used because spring needs to know which java variable matches which sql paramenter
 
 	@Query("SELECT COUNT(r) FROM Rating r WHERE r.movie.movieId = :movieId")
 	Long countByMovieId(@Param("movieId") Long movieId);
