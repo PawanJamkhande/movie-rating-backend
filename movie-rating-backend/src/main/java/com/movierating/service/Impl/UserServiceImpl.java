@@ -15,6 +15,7 @@ import com.movierating.repository.UserRepository;
 import com.movierating.service.UserService;
 
 @Service // marks this as a Spring managed service bean holding the business logic
+	//spring scans this creates an object stores it inside the IOC container
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -45,6 +46,8 @@ public class UserServiceImpl implements UserService {
 		User saved = userRepository.save(user); // Hibernate inserts the row - table already exists via ddl-auto
 
 		return mapToResponse(saved);
+		//mapToResponse is the helper method instead of writing response.setEmailID response.setMobile everytime we write this so it sets the value 
+		//mapToResponse is bcz frontend doesnt need to know the password so we dont return the password
 	}
 
 	@Override
@@ -52,8 +55,10 @@ public class UserServiceImpl implements UserService {
 
 		User user = userRepository.findByEmail(request.getEmail())
 				.orElseThrow(() -> new InvalidCredentialsException("Invalid email or password"));
-
+// we used .matches because it compares the given password(that is converted into hashed one) to the hashed password in the database
+		//if we simply write request.getpassword.equels(user.getpassword) it will compare the hashed one in the database and the one passwprd taht is not hashed yet so there will be always an exception
 		if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+			// this line sayd if not matches request.getpasword and user.getpassword then throw the error invalis email or password
 			throw new InvalidCredentialsException("Invalid email or password");
 		}
 
