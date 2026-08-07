@@ -52,7 +52,10 @@ public class AuthController {
 	Angular -> AuthController -> @RequestBody -> register request DTO -> validation(@valid) -> userService -> User repository -> hibernate -> SQL (data inserted) -> mapToResponse -> API response -> JSON -> angular
 	*/
 
+	
 	@PostMapping("/login")
+	// we dont use getmapping because when we use get the data is fetched and it will pass the data through URL so the data gets visible in the URL, w
+	// we dont want to pass all the unnecessary things through URL 
 	public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginRequest request) {
 
 		UserResponse user = userService.login(request);
